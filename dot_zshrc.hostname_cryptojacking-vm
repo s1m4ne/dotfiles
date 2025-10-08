@@ -33,3 +33,6 @@ PROMPT='%F{green}%n@%m%f:%F{blue}%~%f$ '
 if [[ $EUID -eq 0 ]]; then
   PROMPT='%F{red}%n@%m%f:%F{blue}%~%f# '
 fi
+
+# ----- aliases -----
+[ -f ~/aliases.zsh ] && source ~/aliases.zsh
