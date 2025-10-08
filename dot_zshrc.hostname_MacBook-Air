@@ -40,5 +40,8 @@ ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=magenta'
 ZSH_HIGHLIGHT_STYLES[assign]='fg=white'
 ZSH_HIGHLIGHT_STYLES[default]='fg=white'
 
+# aliases
+[ -f "$HOME/aliases.zsh" ] && source "$HOME/aliases.zsh"
+
 # starship
 eval "$(starship init zsh)"
