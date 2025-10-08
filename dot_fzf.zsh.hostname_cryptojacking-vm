@@ -1,0 +1,7 @@
+# Setup fzf
+# ---------
+if [[ ! "$PATH" == */home/matsulab/.fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/home/matsulab/.fzf/bin"
+fi
+
+source <(fzf --zsh)
