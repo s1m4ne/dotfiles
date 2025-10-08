@@ -1,0 +1,44 @@
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# AWS CLI
+export AWS_PROFILE=udemy-terraform
+
+# tmux
+if [ -z "$TMUX" ] && [ -n "$ALACRITTY_LOG" ]; then
+  tmux attach -t 0 || tmux new -s 0
+fi
+export LS_COLORS="ex=36:di=34:ln=36:so=32:pi=33"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
+
+# zoxide
+eval "$(zoxide init zsh)"
+
+# zsh-autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
+ZSH_HIGHLIGHT_STYLES[command]='fg=blue'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan' 
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=blue'
+ZSH_HIGHLIGHT_STYLES[function]='fg=blue' 
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=magenta' 
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
+ZSH_HIGHLIGHT_STYLES[path]='fg=yellow' 
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan' 
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan' 
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=yellow' 
+ZSH_HIGHLIGHT_STYLES[comment]='fg=white,dim' 
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=green' 
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=green' 
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=magenta' 
+ZSH_HIGHLIGHT_STYLES[assign]='fg=white'
+ZSH_HIGHLIGHT_STYLES[default]='fg=white'
+
+# starship
+eval "$(starship init zsh)"
