@@ -1,5 +1,10 @@
+# MacOS以外で無視
 {{ if ne .chezmoi.os "darwin" }}
-.hammerspoon/**
-.tmux.conf
-.config/alacritty/**
+dot_hammerspoon/**
+dot_tmux.conf
+dot_config/alacritty/**
 {{ end }}
+
+# 常時無視（ソース専用の作業ディレクトリ）
+scripts/**
+ansible/**
