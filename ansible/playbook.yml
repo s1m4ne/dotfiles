@@ -2,7 +2,7 @@
   gather_facts: yes
 
   tasks:
-    # ------- macOS: brew -------
+    # macOS
     - name: Base packages on macOS (brew)
       homebrew:
         name:
@@ -20,7 +20,7 @@
         state: present
       when: ansible_facts['os_family'] == "Darwin"
 
-    # ------- Ubuntu/Debian: apt -------
+    # Ubuntu/Debian
     - name: Base packages on Ubuntu/Debian (apt)
       apt:
         name:
@@ -40,3 +40,6 @@
         state: present
         update_cache: yes
       when: ansible_facts['os_family'] == "Debian"
+      become: true
+      become_method: sudo
+
