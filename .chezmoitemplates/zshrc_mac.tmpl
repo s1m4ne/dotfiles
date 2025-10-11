@@ -1,0 +1,13 @@
+
+# AWS CLI
+export AWS_PROFILE=udemy-terraform
+
+# tmux
+if [ -z "$TMUX" ] && [ -n "$ALACRITTY_LOG" ]; then
+  tmux attach -t 0 || tmux new -s 0
+fi
+
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+{{ template "zshrc_common.tmpl" . }}

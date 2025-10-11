@@ -1,0 +1,5 @@
+{{ if eq .chezmoi.hostname "MacBook-Air" }}
+{{ template "zshrc_mac.tmpl" . }}
+{{ else if eq .chezmoi.hostname "cryptojacking-vm" }}
+{{ template "zshrc_vm.tmpl" . }}
+{{ end }}
