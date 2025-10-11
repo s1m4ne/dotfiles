@@ -1,53 +1,46 @@
 palette = "custom"
-# 1行目: ┏ + [username] + [ (branch + status) ] + [time] + took
-# 2行目: ┖ + [directory] + >
-format = "[┏](fg:accent)$username[\\[](fg:accent)$git_branch$git_status[\\]](fg:accent)$time$cmd_duration$line_break[┖](fg:accent)$directory$character"
+format = "[┏](fg:accent)$hostname([\\[](fg:accent)$git_branch$git_status[\\]](fg:accent))$time$cmd_duration$line_break[┖](fg:accent)$directory$character"
 
 [directory]
 truncation_length = 100
 truncate_to_repo = false
-format = "[\\[](fg:accent)[$path](fg:#F5F5F5)[\\]](fg:accent)"
+format = "[\\[](fg:accent)[$path](fg:text)[\\]](fg:accent)"
 
 [git_branch]
-# ブランチ記号は U+E0A0（）、中身は白。括弧は外側で挟む
-format = "[$symbol$branch](fg:#F5F5F5)"
+format = "[$symbol$branch](fg:text)"
 symbol = "\uE0A0"
+style  = "fg:text"
 
 [git_status]
-# ブランチと同じ括弧の“中”に入れるため、先頭に半角スペースだけ付ける
-# 角括弧は付けない。色は白。
-format = " $all_status$ahead_behind"
-style  = "fg:#F5F5F5"
+format = "$all_status$ahead_behind"
+style  = "fg:text"
 disabled = false
 
 [time]
 disabled = false
 time_format = "%H:%M:%S"
-# 角括弧はアクセント、中身は白
-format = "[\\[](fg:accent)[$time](fg:#F5F5F5)[\\]](fg:accent)"
+format = "[\\[](fg:accent)[\U000f051b $time](fg:text)[\\]](fg:accent)"
 utc_time_offset = "local"
 
 [cmd_duration]
 min_time = 500
-# timeとの間はこの先頭スペースのみ（全体format側にはスペースを置かない）
 format = " took $duration"
-style = "fg:#F5F5F5"
+style = "fg:text"
 show_milliseconds = false
 
 [character]
-# 三角をやめて '>' を使用。色はアクセント
 success_symbol = "[>](fg:accent)"
 error_symbol   = "[>](fg:accent)"
 vicmd_symbol   = "[>](fg:accent)"
 
 [username]
 show_always = true
-# 角括弧はアクセント、中身は白
-format = "[\\[](fg:accent)[$user](fg:#F5F5F5)[\\]](fg:accent)"
+format = "[\\[](fg:accent)[$user](fg:text)[\\]](fg:accent)"
 
 [hostname]
 ssh_only = false
-format = "$hostname"
+format = "[\\[](fg:accent)[$hostname](fg:text)[\\]](fg:accent)"
 
 [palettes.custom]
-accent = "#CB4B17"
+accent = "#569FBA"
+text = "#FFFFFF"
