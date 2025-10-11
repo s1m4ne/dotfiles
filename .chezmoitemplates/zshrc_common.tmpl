@@ -4,26 +4,19 @@
 # aliases
 [ -f ~/aliases.zsh ] && source ~/aliases.zsh
 
+
 {{ if eq .chezmoi.os "darwin" }}
-if (( $+commands[brew] )); then
-  BREW_PREFIX="$(brew --prefix)"
-
-  # zsh-autosuggestions
-  ZSH_AUTOSUG="$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-  [ -r "$ZSH_AUTOSUG" ] && source "$ZSH_AUTOSUG"
-
-  # zsh-syntax-highlighting
-  ZSH_HIGHLIGHT="$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-  [ -r "$ZSH_HIGHLIGHT" ] && source "$ZSH_HIGHLIGHT"
-fi
-{{ else }}
 # zsh-autosuggestions
-ZSH_AUTOSUG="$HOME/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-[ -r "$ZSH_AUTOSUG" ] && source "$ZSH_AUTOSUG"
+source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # zsh-syntax-highlighting
-ZSH_HIGHLIGHT="$HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-[ -r "$ZSH_HIGHLIGHT" ] && source "$ZSH_HIGHLIGHT"
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+{{ else }}
+# zsh-autosuggestions
+source "$HOME/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+# zsh-syntax-highlighting
+source "$HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 {{ end }}
 
 # zsh-syntax-highlighting (styles)
