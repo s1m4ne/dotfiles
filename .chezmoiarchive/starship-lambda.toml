@@ -1,0 +1,47 @@
+palette = "custom"
+format = "$username@$hostname $directory$git_branch $git_status $time$cmd_duration$line_break$character"
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+format = "[$path]($style)"
+style = "fg:accent"
+
+[git_branch]
+format = " [git:](fg:#F5F5F5)\u2009[$symbol$branch]($style)"
+symbol = " "
+style  = "fg:accent"
+
+[git_status]
+format = "[\\[$all_status$ahead_behind\\]]($style)"
+style  = "fg:accent"
+disabled = false
+
+[time]
+disabled = false
+time_format = "%H:%M:%S"
+format = "[\uE641 $time]($style)"
+style = "fg:#F5F5F5"
+utc_time_offset = "local"
+
+[cmd_duration]
+min_time = 500
+format = " took [$duration]($style)"
+style = "fg:#F5F5F5"
+show_milliseconds = false
+
+[character]
+success_symbol = "[\uF101 ](fg:#FFFFFF)"
+error_symbol   = "[\uF101 ](fg:#FFFFFF)"
+vicmd_symbol   = "[\uF101 ](fg:#FFFFFF)"
+
+[username]
+show_always = true
+format = "$user"
+
+[hostname]
+ssh_only = false
+format = "$hostname"
+
+[palettes.custom]
+accent = "#E33A33"
