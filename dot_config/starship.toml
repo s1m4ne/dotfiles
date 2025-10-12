@@ -5,15 +5,15 @@ format = "$hostname $directory$git_branch$git_status\u2009$cmd_duration$fill$tim
 truncation_length = 100
 truncate_to_repo = false
 format = "[$path]($style)"
-style = "fg:accent"
+style = "fg:path"
 
 [git_branch]
-format = " [git:](fg:#F5F5F5)\\([$branch]($style)\\)"
+format = " [git:](fg:git_label)[\\(](fg:git_label)[$branch]($style)[\\)](fg:git_label)"
 symbol = ""
-style  = "fg:accent"
+style  = "fg:branch"
 
 [git_status]
-format = "[\\[](fg:white)[$all_status$ahead_behind]($style)[\\]](fg:white)"
+format = "[\\[](fg:git_label)[$all_status$ahead_behind]($style)[\\]](fg:git_label)"
 style  = "fg:accent"
 disabled = false
 
@@ -35,9 +35,10 @@ symbol = " "
 style = "fg:white"
 
 [character]
-success_symbol = "[\uF101 ](fg:white)"
-error_symbol   = "[\uF101 ](fg:white)"
-vicmd_symbol   = "[\uF101 ](fg:white)"
+format = "$symbol\u2009"
+success_symbol = "[\uF105](fg:arrow)"
+error_symbol   = "[\uF105](fg:arrow)"
+vicmd_symbol   = "[\uF105](fg:arrow)"
 
 [username]
 show_always = true
@@ -45,8 +46,13 @@ format = "[$user](fg:white)"
 
 [hostname]
 ssh_only = false
-format = "[@$hostname](fg:white)"
+format = "[@$hostname]($style)"
+style = "fg:arrow"
 
 [palettes.custom]
 accent = "#E33A33"
 white = "#ffffff"
+path = "#56B6C2"
+git_label = "#5FAAE8"
+branch = "#D0666F"
+arrow = "#98C379"
