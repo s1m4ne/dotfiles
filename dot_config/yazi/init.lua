@@ -6,3 +6,7 @@ require("copy-file-contents"):setup({
 require("full-border"):setup {
   type = ui.Border.ROUNDED,
 }
+
+require("smart-enter"):setup{
+  open_multi = false,
+}

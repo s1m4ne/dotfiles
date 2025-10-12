@@ -1,9 +1,14 @@
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "y"
 run = ["plugin copy-file-contents"]
 desc = "Copy file contents to clipboard"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "Y"
 run = ["yank"]
 desc = "Yank (copy) files"
+
+[[mgr.prepend_keymap]]
+on = "<Enter>"
+run = ["plugin smart-enter"]
+desc = "Smart enter: open file / enter dir"
