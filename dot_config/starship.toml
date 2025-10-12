@@ -8,26 +8,26 @@ format = "[$path]($style)"
 style = "fg:path"
 
 [git_branch]
-format = " [git:](fg:git_label)[\\(](fg:git_label)[$branch]($style)[\\)](fg:git_label)"
+format = " [git:](fg:git_blue)[\\(](fg:git_blue)[$branch]($style)[\\)](fg:git_blue)"
 symbol = ""
-style  = "fg:branch"
+style  = "fg:git_red"
 
 [git_status]
-format = "[\\[](fg:git_label)[$all_status$ahead_behind]($style)[\\]](fg:git_label)"
-style  = "fg:accent"
+format = "[\\[](fg:git_blue)[$all_status$ahead_behind]($style)[\\]](fg:git_blue)"
+style  = "fg:git_red"
 disabled = false
 
 [time]
 disabled = false
 time_format = "%H:%M:%S"
 format = "[$time]($style)"
-style = "fg:#F5F5F5"
+style = "fg:clock"
 utc_time_offset = "local"
 
 [cmd_duration]
 min_time = 500
-format = "took [$duration]($style)"
-style = "fg:#F5F5F5"
+format = "[took $duration]($style)"
+style = "fg:clock"
 show_milliseconds = false
 
 [fill]
@@ -40,19 +40,15 @@ success_symbol = "[\uF105](fg:arrow)"
 error_symbol   = "[\uF105](fg:arrow)"
 vicmd_symbol   = "[\uF105](fg:arrow)"
 
-[username]
-show_always = true
-format = "[$user](fg:white)"
-
 [hostname]
 ssh_only = false
 format = "[@$hostname]($style)"
 style = "fg:arrow"
 
 [palettes.custom]
-accent = "#E33A33"
-white = "#ffffff"
-path = "#56B6C2"
-git_label = "#5FAAE8"
-branch = "#D0666F"
-arrow = "#98C379"
+path     = "#56B6C2"
+git_blue = "#65b1cd"
+git_red  = "#d84f76"
+arrow    = "#98C379"
+white    = "#e0def4"
+clock    = "#b1acde"
