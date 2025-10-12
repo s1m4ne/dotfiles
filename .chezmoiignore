@@ -1,8 +1,8 @@
 # MacOS以外で無視
 {{ if ne .chezmoi.os "darwin" }}
-dot_hammerspoon/**
-dot_tmux.conf
-dot_config/alacritty/**
+.hammerspoon/**
+.tmux.conf
+.config/alacritty/**
 {{ end }}
 
 # 常時無視（ソース専用の作業ディレクトリ）

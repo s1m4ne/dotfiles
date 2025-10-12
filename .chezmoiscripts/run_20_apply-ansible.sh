@@ -39,4 +39,4 @@ if ! confirm; then
 fi
 
 # 4) ansible 実行（ローカル・SSHなし）
-ansible-playbook -i localhost, -c local "$PLAYBOOK"
+ansible-playbook -i localhost, -c local "$PLAYBOOK" -K
