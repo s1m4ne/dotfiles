@@ -1,5 +1,15 @@
 palette = "custom"
-format = "$hostname $directory$git_branch$git_status\u2009$cmd_duration$fill$time$line_break$character"
+format = "$python $hostname $directory$git_branch$git_status\u2009$cmd_duration$fill$time$line_break$character"
+
+[python]
+format = "[\\($virtualenv\\)]($style)"
+style = "fg:arrow"
+symbol = ""
+pyenv_version_name = false
+detect_extensions = []
+detect_files = []
+detect_folders = []
+disabled = false
 
 [directory]
 truncation_length = 100
@@ -13,7 +23,6 @@ symbol = ""
 style  = "fg:git_red"
 
 [git_status]
-# 変更点：カッコ全体を () で包み、$all_status/$ahead_behind が空のときは非表示
 format = "([\\[](fg:git_blue)[$all_status$ahead_behind]($style)[\\]](fg:git_blue))"
 style  = "fg:git_red"
 disabled = false
