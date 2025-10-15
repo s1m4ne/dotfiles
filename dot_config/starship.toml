@@ -1,5 +1,5 @@
 palette = "custom"
-format = "$python $hostname $directory$git_branch$git_status\u2009$cmd_duration$fill$time$line_break$character"
+format = "$python$hostname $directory$git_branch$git_status\u2009$cmd_duration$fill$time$line_break$character"
 
 [python]
 format = "[\\($virtualenv\\)]($style)"
