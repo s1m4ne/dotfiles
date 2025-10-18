@@ -19,6 +19,9 @@ source "$HOME/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 {{ end }}
 
+# zsh-autosuggestions (styles)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#808080'
+
 # zsh-syntax-highlighting (styles)
 ZSH_HIGHLIGHT_STYLES[command]='fg=blue'
 ZSH_HIGHLIGHT_STYLES[alias]='fg=blue'
@@ -30,6 +33,29 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=#b1acde'
 
 # zoxide
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
+
+# nvim
+export EDITOR=nvim
+export VISUAL=nvim
+
+# zsh shortcuts
+beginning-of-buffer() { CURSOR=0; }
+zle -N beginning-of-buffer
+end-of-buffer() { CURSOR=${#BUFFER}; }
+zle -N end-of-buffer
+kill-whole-buffer(){ CUTBUFFER=$BUFFER; BUFFER=; CURSOR=0; }
+zle -N kill-whole-buffer
+
+bindkey '^[[1;3A' beginning-of-buffer
+bindkey '^[[1;3B' end-of-buffer
+bindkey '^[[1;3D' beginning-of-line
+bindkey '^[[1;3C' end-of-line
+bindkey '^[h' beginning-of-line
+bindkey '^[l' end-of-line
+bindkey '^[k' beginning-of-buffer
+bindkey '^[j' end-of-buffer
+bindkey '^[d' kill-whole-buffer
+
 
 # starship
 (( $+commands[starship] )) && eval "$(starship init zsh)"

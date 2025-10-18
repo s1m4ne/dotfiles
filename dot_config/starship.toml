@@ -48,7 +48,7 @@ style = "fg:white"
 format = "$symbol\u2009"
 success_symbol = "[\uF105](fg:arrow)"
 error_symbol   = "[\uF105](fg:arrow)"
-vicmd_symbol   = "[\uF105](fg:arrow)"
+vicmd_symbol = "[\\[](fg:arrow)[NORMAL](fg:arrow)[\\]](fg:arrow) [\uF105](fg:arrow)"
 
 [hostname]
 ssh_only = false
