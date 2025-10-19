@@ -12,3 +12,4 @@ desc = "Yank (copy) files"
 on = "<Enter>"
 run = ["plugin smart-enter"]
 desc = "Smart enter: open file / enter dir"
+
