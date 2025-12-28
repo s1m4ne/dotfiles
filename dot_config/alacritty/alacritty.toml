@@ -6,7 +6,7 @@ live_config_reload = true
 padding = { x = 4, y = 2 }
 opacity = 0.75
 blur = true
-startup_mode = "Fullscreen"
+startup_mode = "Maximized"
 
 [scrolling]
 history = 100000
