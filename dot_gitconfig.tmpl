@@ -1,5 +1,0 @@
-{{ if eq .chezmoi.hostname "MacBook-Air" }}
-{{ template "gitconfig_mac.tmpl" . }}
-{{ else if eq .chezmoi.hostname "cryptojacking-vm" }}
-{{ template "gitconfig_vm.tmpl" . }}
-{{ end }}

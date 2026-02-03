@@ -1,23 +1,25 @@
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# AWS CLI
+export AWS_PROFILE=udemy-terraform
+
+# tmux
+if [ -z "$TMUX" ] && [ -n "$ALACRITTY_LOG" ]; then
+  tmux attach -t 0 || tmux new -s 0
+fi
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # aliases
 [ -f ~/aliases.zsh ] && source ~/aliases.zsh
 
-
-{{ if eq .chezmoi.os "darwin" }}
 # zsh-autosuggestions
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # zsh-syntax-highlighting
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-{{ else }}
-# zsh-autosuggestions
-source "$HOME/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-
-# zsh-syntax-highlighting
-source "$HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-{{ end }}
 
 # zsh-autosuggestions (styles)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#808080'
@@ -55,7 +57,6 @@ bindkey '^[l' end-of-line
 bindkey '^[k' beginning-of-buffer
 bindkey '^[j' end-of-buffer
 bindkey '^[d' kill-whole-buffer
-
 
 # starship
 (( $+commands[starship] )) && eval "$(starship init zsh)"
