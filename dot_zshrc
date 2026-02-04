@@ -4,9 +4,11 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # AWS CLI
 export AWS_PROFILE=udemy-terraform
 
-# tmux
-if [ -z "$TMUX" ] && [ -n "$ALACRITTY_LOG" ]; then
-  tmux attach -t 0 || tmux new -s 0
+# tmux (auto-start in supported terminals)
+if [[ -z "$TMUX" && -o interactive ]]; then
+  if [[ -n "$ALACRITTY_LOG" || "$TERM_PROGRAM" == "ghostty" || "$TERM" == "xterm-ghostty" || -n "$GHOSTTY" ]]; then
+    tmux attach -t 0 || tmux new -s 0
+  fi
 fi
 
 # fzf
@@ -58,5 +60,19 @@ bindkey '^[k' beginning-of-buffer
 bindkey '^[j' end-of-buffer
 bindkey '^[d' kill-whole-buffer
 
-# starship
-(( $+commands[starship] )) && eval "$(starship init zsh)"
+# prompt (simple, no special glyphs)
+autoload -Uz vcs_info
+unsetopt prompt_subst
+zstyle ':vcs_info:git:*' formats '%b'
+precmd() {
+  vcs_info
+  local branch=""
+  if [[ -n "$vcs_info_msg_0_" ]]; then
+    branch=" %F{white}${vcs_info_msg_0_}%f"
+  fi
+  PROMPT="%F{cyan}%~%f${branch} %F{yellow}$%f "
+}
+
+# starship (disabled)
+# To re-enable, uncomment the next line.
+# (( $+commands[starship] )) && eval "$(starship init zsh)"
